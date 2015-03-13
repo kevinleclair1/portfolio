@@ -1,0 +1,938 @@
+/*
+Theme Name: HackerYou Starter Theme
+Theme URI: http://hackeryou.com;
+Description: Starter theme for building any website. Created by HackerYou. Rename this to your own theme page.
+Version: 1.0
+Author: HackerYou
+Author URI: http://hackeryou.com
+*/
+
+@import '_grid';
+@import '_juice';
+
+$main : #29AED9;
+/* =============================================================================
+                   Normalize, border box and clearfix
+   ========================================================================== */
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:700;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em;}pre{white-space:pre-wrap;word-wrap:break-word;}q{quotes:\201C \201D \2018 \2019;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-.5em;}sub{bottom:-.25em;}img{border:0;}svg:not(:root){overflow:hidden;}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,html input[type=button],/* 1 */
+input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}button[disabled],input[disabled]{cursor:default;}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}body,figure{margin:0;}legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+.clearfix:after {
+   content: " ";
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+img {
+  max-width:100%;
+}
+
+/* Global Classes / Wordpress Specific */
+.aligncenter    { text-align: center; margin: 0 auto; }
+.alignleft      { float: left; }
+.alignright     { float: right; }
+img.alignleft     { padding-right: 5px;}
+img.alignright    { padding-left: 5px; }
+.clear        { width:100%; float:left; clear:both;}
+
+
+
+/* =============================================================================
+                   Default Styling
+   ========================================================================== */
+body, html {
+  font-size: 10px;
+}
+body {
+  color:#333;
+  font-family: 'Open Sans', sans-serif;
+  background: $main;
+  font-weight: 300;
+}
+
+.container {
+  max-width:1040px;
+  margin:0 auto;
+}
+
+.content {
+  float:left;
+  width:65%;
+  margin-right: 5%;
+
+}
+
+.full {
+  width:100%;
+}
+
+/* links */
+a {
+  color:#BA209B;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #D424B1;
+}
+
+/* paragraphs */
+p {
+  line-height: 1.5;
+}
+
+/*blockquotes*/
+blockquote {
+  background: #F7F7F7;
+  margin:0;
+  padding:20px;
+}
+  blockquote p {
+    margin-top: 0;
+  }
+
+/*tables*/
+table td {
+  padding:10px;
+}
+table tr td:first {
+  padding-right: 0;
+}
+
+/*def lists*/
+dt {
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+dd {
+  padding:10px;
+  margin-left: 10px;
+}
+
+/*lists*/
+ul li,ol li {
+  padding:3px;
+}
+
+/*PRE*/
+
+pre {
+  background: #F7F7F7;
+  padding:10px;
+  border-radius: 4px;
+  border:1px solid #ccc;
+}
+/* =============================================================================
+                   Header
+   ========================================================================== */
+header {
+  background: black;
+  overflow: hidden;
+  padding: 10px;
+  color: white;
+  img {
+    float: left;
+    width: 45px;
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+  h1 {
+    display: inline-block;
+    margin: 10px;
+    font-weight: 300;
+    font-size: 3rem;
+    text-transform: uppercase;
+    a {
+      color: white;
+      transition: 0.3s;
+      &:hover {
+        color: $main;
+      }
+    }
+  }
+  ul {
+    float: right;
+    margin: 20px;
+    li {
+      font-size: 1.6rem;
+      text-transform: uppercase;
+    }
+  }
+}
+.mobileNav {
+  font-size: 5rem;
+  margin: 0;
+  display: none;
+  float: right;
+}
+.sticky {  
+    position: fixed;  
+    width: 100%;  
+    left: 0;  
+    top: 0;  
+    z-index: 100;  
+    border-top: 0;  
+} 
+.shrink {
+  padding: 0 10px;
+  h1 {
+    font-size: 2rem;
+  }
+  ul.menu li a {
+    padding: 0;
+  }
+  ul.menu {
+    margin: 11px;
+  }
+  img {
+    width: 25px;
+    margin-top: 10px;
+  }
+}
+
+/* =============================================================================
+                   Home Page
+   ========================================================================== */
+
+.portRowTop {
+  margin: 50px 0;
+  .mainInfo {
+    @include column(6);
+    h2 {
+      font-size: 8rem;
+      text-transform: uppercase;
+      font-weight: 300;
+      color: white;
+      margin: 0;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    }
+    p {
+      font-size: 4rem;
+      font-weight: 300;
+      color: black;
+      margin: 0;
+    }
+  }
+  .portMainPic {
+    @include column(6);
+    img {
+      margin-top: 25%;
+    }
+  }
+}
+.portRowBottom {
+  margin-bottom: 50px;
+  .skills {
+    @include column(6);
+    .skillIcon, h4 {
+      float: left;
+    }
+    p {
+      clear: both;
+      font-size: 1.8rem;
+      margin-top: 8px;
+      font-weight: 300;
+    }
+    h4 {
+      margin: 0;
+      text-transform: uppercase;
+      font-size: 2rem;
+      margin-top: 5px;
+      margin-left: 5px;
+      color: white;
+      font-weight: 300;
+    }
+    .skillIcon {
+      background: black;
+      border-radius: 50%;
+      color: white;
+      padding: 5px;
+      width: 40px;
+      height: 40px;
+      position: relative;
+      .fa {
+        font-size: 2rem;
+        @include centerer;
+      }
+      .fa-mobile {
+        font-size: 3rem;
+      }
+    }
+  }
+  .portMainPic {
+    @include column(6);
+    img {
+      width: 80%;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+.aboutMe {
+  background: #CFCFCF;
+  padding-top: 50px;
+  .aboutInfo {
+    @include column(6);
+    h2 {
+      font-size: 4rem;
+      font-weight: 300;
+    }
+    p {
+      font-size: 1.8rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+  }
+  .headshot{
+    @include column(6);
+  }    
+}
+.portfolio {
+  margin: 50px auto;
+  .portArchive {
+    float: right;
+    color: white;
+    font-size: 1.5rem;
+    transition: 0.3s;
+    &:hover {
+      color: black;
+    }
+  }
+}
+.portPieces {
+  h2 {
+    font-size: 4rem;
+    font-weight: 300;
+    color: white;
+  }
+  .portPiece {
+    margin: 30px 0;
+    &:nth-child(2n) {
+      .image {
+        float: right;
+      }
+      .portInfo {
+        float: left;
+      }
+    }
+    .portTitle {
+      font-weight: 300;
+      font-size: 2rem;
+      color: black;
+    }
+    .image {
+      width: 70%;
+      float: left;
+      position: relative;
+      box-shadow: 0px 0px 1px rgba(0,0,0,0.5);
+      a {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        opacity: 0;
+        transition: 0.5s;
+        &:hover {
+          opacity: 1;
+        }
+      }
+      .imageBox {
+        @include centerer;
+        opacity: 0;
+        font-size: 2.5rem;
+        padding: 10px;
+        color: white; 
+        background: rgba($main, 0.8);
+        h3 {
+          margin: 0;
+        }
+      }
+    }
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+.portPieces .portPiece .image a:hover .imageBox {
+  opacity: 1;
+}
+.portInfo {
+  width: 30%;
+  float: right;
+  padding: 20px;
+  .portDesc {
+    font-size: 1.5rem;
+  }
+}
+.tags {
+  color: black;
+  font-size: 1.3rem;
+  a {
+    color: white;
+    transition: 0.3s;
+    margin: 0 3px;
+    &:first-child {
+      margin-left: 10px;
+    }
+    &:hover {
+      color: black;
+    }
+  }
+}
+.image:hover:before {
+  opacity: 0;
+}
+.social {
+  background: black;
+  color: white;
+  padding: 30px 0;
+}
+.socialInfo {
+  h2 {
+    font-size: 4rem;
+    font-weight: 300;
+    color: $main;
+  }
+  .socialSection {
+    @include column(4);
+    padding-bottom: 7px;
+    border-bottom: 2px solid white;
+    margin-bottom: 30px;
+  }
+  .fa {
+    @include column(2.5);
+    font-size: 5em;
+  }
+  .socialText {
+    @include column(9.5);
+    p {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+  }
+}
+.socialLink {
+  color: $main;
+  transition: 0.3s;
+  &:hover {
+    color: white;
+  }
+}
+
+/* =============================================================================
+                   Portfolio Archive
+   ========================================================================== */
+
+.archive {
+  background: #FFFFFF;
+}
+/* =============================================================================
+                   Blog Archive
+   ========================================================================== */
+.blog, .single {
+  background: #FFFFFF;
+}
+/* =============================================================================
+                   Sidebar
+   ========================================================================== */
+.sidebar {
+  width:30%;
+  float:left;
+}
+  .sidebar ul {
+    margin:0;
+    padding:0;
+  }
+    .sidebar ul li {
+      list-style: none;
+    }
+.widget-title {
+  font-size: 3rem;
+  font-weight: 300;
+  margin: 0;
+  margin-bottom: 15px;
+  a {
+    color: black;
+    transition: 0.5s;
+    &:hover {
+      color: $main;
+    }
+  }
+}
+.widget-container {
+  padding: 20px;
+  background: #EEEEEE;
+  margin: 20px 0;
+}
+#reallysimpletwitterwidget-3 {
+  background: rgba($main, 0.3);
+  margin-top: 40px;
+  li {
+    font-size: 2rem;
+    margin: 10px 0;
+    color: $main;
+    a {
+      color: $main;
+      transition: 0.5s;
+      &:hover {
+        color: black;
+      }
+    }
+    &:before {
+      content: '\f099';
+      font-family: FontAwesome;
+      color: black;
+      display: block;
+    }
+  }
+}
+#categories-2 {
+  ul {
+    background: $main;
+    li {
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      a {
+        color: white;
+      }
+    }
+  }
+}
+.widget_recent_entries, .widget_archive {
+  li {
+    font-size: 1.5rem;
+    border-bottom: 1px solid $main;
+    &:last-child {
+      border-bottom: none;
+    }
+    a {
+      color: darken($main, 5);
+    }
+  }
+}
+
+/* =============================================================================
+                   Blog Roll
+   ========================================================================== */
+.blogTitle {
+  font-size: 4rem;
+  font-weight: 300;
+}
+.entry-title {
+  font-size: 3.5rem;
+  font-weight: 300;
+  a {
+    color: $main;
+    transition: 0.3s;
+    &:hover {
+      color: darken($main, 10);
+    }
+  }
+}
+.entry-content {
+  font-size: 1.9rem;
+  a {
+    color: $main;
+    transition: 0.3s;
+    &:hover {
+      color: darken($main, 10);
+    }
+  }
+  .meta-nav {
+    display: none;
+  }
+}
+.post {
+  footer, .entry-utility {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 600;
+    a {
+        color: $main;
+        transition: 0.3s;
+        &:hover {
+          color: darken($main, 10);
+        }
+      }
+  }
+}
+/* =============================================================================
+                   BLog Single
+   ========================================================================== */
+
+h1.entry-title {
+  font-size: 4.5rem;
+}
+.prev-post, .next-post {
+  @include column(6);
+  h4 {
+  text-transform: uppercase;
+  font-size: 2rem;
+  }
+  a {
+    color: $main;
+    font-size: 1.8rem;
+  } 
+}
+
+/* =============================================================================
+                   Footer
+   ========================================================================== */
+
+.main-footer {
+  clear:both;
+  font-size: 2rem;
+  background: $main;
+  padding: 20px;
+  p {
+    margin: 0;
+  }
+}
+
+
+/* =============================================================================
+                   Navigation
+   ========================================================================== */
+  ul.menu {
+    margin:20px;
+    padding:0;
+  }
+    ul.menu li {
+      display:inline;
+      margin-right: 10px;
+    }
+
+      ul.menu li a {
+        color:#333;
+        padding:10px;
+        color:white;
+      }
+
+
+/* =============================================================================
+                   Comment Styling
+   ========================================================================== */
+
+#comments .navigation { padding:0 0 18px; }
+h3#comments-title, h3#reply-title {
+  color:#000000;
+  font-weight:700;
+  font-size:20px;
+  margin-bottom:0;
+}
+h3#comments-title { padding:24px 0; }
+.commentlist li.comment {
+  border-bottom:1px solid #e7e7e7;
+  line-height:24px;
+  position:relative;
+  clear:both;
+  margin:0 0 24px;
+  padding:0 0 0 56px;
+}
+.commentlist li:last-child {
+  border-bottom:none;
+  margin-bottom:0;
+}
+#comments .comment-body ul, #comments .comment-body ol { margin-bottom:18px; }
+#comments .comment-body p:last-child { margin-bottom:6px; }
+#comments .comment-body blockquote p:last-child { margin-bottom:24px; }
+.commentlist ol { list-style:decimal; }
+.commentlist .avatar {
+  position:absolute;
+  top:4px;
+  left:0;
+}
+.comment-author cite {
+  color:#000000;
+  font-style:normal;
+  font-weight:700;
+}
+.comment-author .says { font-style:italic; }
+.comment-meta {
+  font-size:12px;
+  margin:0 0 5px;
+}
+.comment-meta a:link, .comment-meta a:visited {
+  color:#888888;
+  text-decoration:none;
+}
+.reply {
+  font-size:12px;
+  padding:0 0 24px;
+}
+.reply a, a.comment-edit-link { color:#888888; }
+.commentlist .children li {
+  border:none;
+  margin:0;
+}
+#comments .pingback {
+  margin-bottom:18px;
+  padding-bottom:18px;
+  border-bottom:1px solid #e7e7e7;
+}
+.commentlist li.comment+li.pingback { margin-top:-6px; }
+#comments .pingback p {
+  color:#888888;
+  font-size:12px;
+  line-height:18px;
+  display:block;
+  margin:0;
+}
+#comments .pingback .url {
+  font-style:italic;
+  font-size:13px;
+}
+input[type=submit] { color:#333333; }
+#respond {
+  margin-top:24px;
+  border-top:1px solid #e7e7e7;
+  overflow:hidden;
+  position:relative;
+}
+#respond .comment-notes { margin-bottom:1em; }
+.form-allowed-tags { line-height:1em; }
+.children #respond { margin:0 48px 0 0; }
+h3#reply-title { margin:18px 0; }
+#comments-list #respond { margin:0 0 18px; }
+#cancel-comment-reply-link {
+  font-size:12px;
+  line-height:18px;
+  font-weight:400;
+}
+#respond .required {
+  color:#ff4b33;
+  font-weight:700;
+}
+#respond label {
+  color:#888888;
+  font-size:1.5rem;
+  margin-bottom: 10px;
+}
+#respond input {
+  width:98%;
+  margin:0 0 9px;
+}
+#respond textarea { 
+  width:98%;
+  font-size: 1.5rem;
+  &:focus {
+    outline: none;
+  } 
+}
+#respond dt, #respond dd {
+  color:#888888;
+  font-size:12px;
+  line-height:18px;
+}
+#respond dd code { font-size:11px; }
+#respond .form-submit { margin:0 0 24px; }
+#respond .form-submit input {
+  width:auto;
+  font-size:1.5rem;
+  padding: 5px;
+  font-weight: 300;  
+  background: black;
+  color: white;
+  border: none;
+}
+#respond dl { margin:0 0 10px; }
+#respond dt {
+  display:inline;
+  font-weight:400;
+}
+#respond dd { display:inline; }
+p.form-allowed-tags, .nocomments { display:none; }
+.commentlist, .commentlist .children {
+  list-style:none;
+  margin:0;
+}
+.comment-meta a:active, .comment-meta a:hover, .reply a:hover, a.comment-edit-link:hover { color:#ff4b33; }
+#respond p, #comments-list ul #respond { margin:0; }
+
+.comment-notes {
+  font-size: 1.5rem;
+}
+.comment-form-author, .comment-form-email, .comment-form-url {
+  input {
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 1.8rem;
+    transition: 0.3s;
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid $main;
+    }
+  }
+}
+#respond p {
+  margin-bottom: 15px;
+}
+.logged-in-as {
+  font-size: 1.5rem;
+  a {
+    color: $main;
+    transition: 0.3s;
+    &:hover {
+      color: darken($main, 10);
+    }
+  }
+}
+
+/* =============================================================================
+                   Media Queries
+   ========================================================================== */
+
+@media (max-width: 1000px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+@media (max-width: 873px) {
+  body, html {
+    font-size: 8px;
+  }
+  .portRowTop {
+    .mainInfo {
+      @include column(7);
+    }
+    .portMainPic {
+      @include column(5);
+    }
+  }
+}
+@media (max-width: 768px) {
+  .mobileNav {
+    display: inline-block;
+  }
+  ul.menu li{
+    display: block;
+    text-align: right;
+    font-size: 4rem;
+  }
+  ul.menu {
+    display: none;
+    margin: 10px;
+  }
+  header ul {
+    float: none;
+  }
+  .socialInfo {
+    .socialSection {
+      @include column(6);
+      margin-bottom: 20px;
+      p {
+        font-size: 2rem;
+      }
+    }
+  }
+  .portRowBottom {
+    
+    .portMainPic {
+      display: none;
+    }
+    .skills {
+      @include column(12);
+      .skillIcon, h4 {
+        float: none;
+      }
+    }
+    .skill {
+      @include column(3);
+    }
+  }
+  .portPieces .portPiece .image {
+    width: 60%;
+  }
+  .portInfo {
+    width: 40%;
+  }
+  .content {
+    float: none;
+    width: 100%; 
+  }
+  .sidebar {
+    float: none;
+    width: 100%;
+    .widget-container {
+      @include column(6);
+      margin-bottom: 10px;
+    }
+    #reallysimpletwitterwidget-3 {
+      margin-top: 0;
+    }
+  }
+  .widget_recent_entries li, .widget_archive li {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 600px) {
+  .portRowTop {
+    .mainInfo, .portMainPic {
+      @include column(12);
+      text-align: center;
+      img {
+        margin-top: 0;
+      }
+    }
+  }
+  .aboutMe {
+    .aboutInfo{
+      @include column(12);
+    }
+    .headshot {
+      @include column(8);
+      float: right;
+    }
+  }
+  .portPieces .portPiece {
+    margin: 20px 0;
+    .image {
+      width: 100%;
+    }
+    .portInfo {
+      width: 100%;
+      padding: 5px;
+    }
+    .portTitle {
+      font-size: 3rem;
+      margin: 10px 0;
+    }
+    .tags {
+      font-size: 1.9rem;
+    }
+    .portDesc {
+      font-size: 1.7rem;
+    }
+  }
+  .socialInfo .socialSection {
+    @include column(12);
+    margin-bottom: 25px;
+  }
+  .portRowBottom {
+    .skill {
+      @include column(12);
+    }
+  }
+  .sidebar {
+    .widget-container {
+      @include column(12);  
+      margin: 10px 0;
+    }
+  }
+}
+@media (max-width: 330px) {
+  .container {
+    padding: 0 10px;
+  }
+  .portRowTop .mainInfo h2 {
+    font-size: 7rem;
+  }
+  .portRowTop .mainInfo p {
+    font-size: 3rem;
+  }
+}
