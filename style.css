@@ -661,6 +661,78 @@ h1.entry-title {
     font-size: 1.8rem; }
 
 /* =============================================================================
+                   Resume
+   ========================================================================== */
+body.page-id-82 {
+  background: white; }
+  body.page-id-82 .container {
+    max-width: 960px; }
+    body.page-id-82 .container h4 {
+      font-size: 2.5rem;
+      color: #29AED9;
+      margin-bottom: 20px; }
+    body.page-id-82 .container p {
+      font-size: 1.5rem; }
+
+.resumeLogo {
+  width: 50px; }
+
+.skillsColumn {
+  padding: 0 40px;
+  width: 25%;
+  float: left; }
+
+.portColumn {
+  padding: 0 40px;
+  width: 75%;
+  float: left; }
+  .portColumn h5 {
+    font-size: 1.5rem;
+    font-style: bold;
+    margin: 15px 0;
+    display: inline-block; }
+  .portColumn .resumeDate {
+    font-style: italic;
+    display: inline-block;
+    margin-left: 10px; }
+  .portColumn a {
+    display: block;
+    font-size: 1.5rem;
+    color: #29AED9; }
+  .portColumn p {
+    margin: 0; }
+
+.resume {
+  width: 100%;
+  float: none;
+  margin: 30px 0; }
+
+.resumeHead {
+  text-align: center; }
+  .resumeHead h2 {
+    font-size: 4rem;
+    margin: 0;
+    text-transform: uppercase; }
+    .resumeHead h2 a {
+      color: #29AED9; }
+  .resumeHead h3 {
+    font-size: 1.7rem;
+    margin: 0; }
+    .resumeHead h3 a {
+      color: #29AED9; }
+
+.print {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 4rem; }
+  .print a {
+    color: #29AED9;
+    -webkit-transition: 0.3s;
+            transition: 0.3s; }
+    .print a:hover {
+      color: #54bee1; }
+
+/* =============================================================================
                    Footer
    ========================================================================== */
 .main-footer {
@@ -1028,3 +1100,19 @@ p.form-allowed-tags, .nocomments {
     font-size: 7rem; }
   .portRowTop .mainInfo p {
     font-size: 3rem; } }
+
+@media print {
+  header {
+    display: none; }
+  footer {
+    display: none; }
+  .print {
+    display: none; }
+  .skillsColumn p {
+    margin: 0; }
+  body.page-id-82 h4 {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 2rem; }
+  .portColumn h5 {
+    margin: 5px 0; } }
