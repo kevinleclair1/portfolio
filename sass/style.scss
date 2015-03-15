@@ -592,9 +592,6 @@ body.page-id-82 {
       color: $main;
       margin-bottom: 20px;
     }
-    p {
-      font-size: 1.5rem;
-    }
   }
 }
 .resumeLogo {
@@ -614,11 +611,11 @@ body.page-id-82 {
       font-style: bold;
       margin: 15px 0;
       display: inline-block;
+      margin-right: 15px;
     }
     .resumeDate {
       font-style: italic;
       display: inline-block;
-      margin-left: 10px;
     }
     a {
       display: block;
@@ -633,6 +630,9 @@ body.page-id-82 {
   width: 100%;
   float: none;
   margin: 30px 0;
+  p {
+    font-size: 1.5rem;
+  }
 }
 .resumeHead {
   text-align: center;
@@ -683,7 +683,7 @@ body.page-id-82 {
                    Navigation
    ========================================================================== */
   ul.menu {
-    margin:20px;
+    margin:20px 15px;
     padding:0;
   }
     ul.menu li {
@@ -870,7 +870,40 @@ p.form-allowed-tags, .nocomments { display:none; }
 /* =============================================================================
                    Media Queries
    ========================================================================== */
-
+ @media print {
+   header {
+     display: none;
+   }
+   footer {
+     display: none; 
+   }
+   .print {
+     display: none;
+   }
+   .skillsColumn{
+     padding-left: 20px;
+     padding-right: 0;
+     p {
+       margin: 0;
+     }
+   }
+   body.page-id-82 {
+       h4 {
+       margin-bottom: 5px;
+       margin-top: 10px;
+       font-size: 2rem;
+     }
+   }
+   .portColumn h5 {
+     margin: 5px 0;
+   }
+   .resumeHead {
+     margin-bottom: 10px;
+   }
+   .portColumn {
+     padding-left: 20px;
+   }
+ }
 @media (max-width: 1000px) {
   .container {
     padding: 0 20px;
@@ -889,7 +922,7 @@ p.form-allowed-tags, .nocomments { display:none; }
     }
   }
 }
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .mobileNav {
     display: inline-block;
   }
@@ -953,7 +986,20 @@ p.form-allowed-tags, .nocomments { display:none; }
   .widget_recent_entries li, .widget_archive li {
     font-size: 2rem;
   }
+  .portColumn {
+    @include column(12);
+  }
+  .skillsColumn {
+    @include column(12);
+    .skillList {
+      @include column(4);
+      p {
+        margin: 0;
+      }
+    }
+  }
 }
+
 @media (max-width: 600px) {
   .portRowTop {
     .mainInfo, .portMainPic {
@@ -1009,7 +1055,7 @@ p.form-allowed-tags, .nocomments { display:none; }
     }
   }
 }
-@media (max-width: 330px) {
+@media (max-width: 400px) {
   .container {
     padding: 0 10px;
   }
@@ -1019,28 +1065,16 @@ p.form-allowed-tags, .nocomments { display:none; }
   .portRowTop .mainInfo p {
     font-size: 3rem;
   }
-}
-@media print {
-  header {
-    display: none;
-  }
-  footer {
-    display: none; 
-  }
-  .print {
-    display: none;
-  }
-  .skillsColumn{
-    p {
-      margin: 0;
+  .skillsColumn {
+    text-align: center;
+    .skillList {
+      @include column(12);
     }
   }
-  body.page-id-82 h4 {
-    margin-bottom: 10px;
-    margin-top: 10px;
-    font-size: 2rem;
+  header img {
+    margin-left: 0;
   }
-  .portColumn h5 {
-    margin: 5px 0;
+  .portRowTop {
+    margin: 30px 0;
   }
 }
