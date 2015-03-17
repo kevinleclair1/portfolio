@@ -379,7 +379,8 @@ header {
     .portRowBottom .portMainPic img {
       width: 80%;
       display: block;
-      margin: 0 auto; }
+      margin: 0 auto;
+      margin-left: 0; }
 
 .aboutMe {
   background: #CFCFCF;
@@ -423,6 +424,9 @@ header {
     float: right; }
   .portPieces .portPiece:nth-child(2n) .portInfo {
     float: left; }
+  .portPieces .portPiece .liveLink {
+    color: white;
+    font-size: 2rem; }
   .portPieces .portPiece .portTitle {
     font-weight: 300;
     font-size: 2rem;
@@ -502,7 +506,8 @@ header {
   margin: 0 1.04167%;
   padding-bottom: 7px;
   border-bottom: 2px solid white;
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  margin-left: 0; }
 .socialInfo .fa {
   display: inline;
   float: left;

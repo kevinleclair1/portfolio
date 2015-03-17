@@ -25,7 +25,7 @@ get_header();  ?>
 
 
 			<?php if($latestPosts->have_posts()) while($latestPosts ->have_posts()) : $latestPosts->the_post(); ?>
-				<h3><a href="mailto:<?php the_field('resume_email') ?>"><?php the_field('resume_email') ?></a> // <a href="http://<?php the_field('resume_website') ?>"><?php the_field('resume_website') ?></a> // <?php the_field('resume_phone') ?></h3>
+				<h3><a href="mailto:<?php the_field('resume_email') ?>"><?php the_field('resume_email') ?></a> // <a href="http://<?php the_field('resume_website') ?>"><?php the_field('resume_website') ?></a> // <a href="tel:<?php the_field('resume_phone') ?>"><?php the_field('resume_phone') ?></a></h3>
 			<?php endwhile; //end custom loop?>
 			<?php wp_reset_postdata(); // return env back to regular?>
 			

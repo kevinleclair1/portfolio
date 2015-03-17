@@ -102,6 +102,7 @@ get_header();  ?>
 					<p class="tags"><?php the_terms( $post->ID, 'technologies','&#x276f;', ' '); ?></p>
 					<div class="portDesc">
 						<?php the_content(); ?>
+						<a class='liveLink' href="<?php the_field('live_link'); ?>">See It Live</a> 
 					</div>	
 				</div> 
 			</div>

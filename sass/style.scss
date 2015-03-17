@@ -269,6 +269,7 @@ header {
       width: 80%;
       display: block;
       margin: 0 auto;
+      margin-left: 0;
     }
   }
 }
@@ -318,6 +319,10 @@ header {
       .portInfo {
         float: left;
       }
+    }
+    .liveLink {
+      color: white;
+      font-size: 2rem;
     }
     .portTitle {
       font-weight: 300;
@@ -403,6 +408,7 @@ header {
     padding-bottom: 7px;
     border-bottom: 2px solid white;
     margin-bottom: 30px;
+    margin-left: 0;
   }
   .fa {
     @include column(2.5);
